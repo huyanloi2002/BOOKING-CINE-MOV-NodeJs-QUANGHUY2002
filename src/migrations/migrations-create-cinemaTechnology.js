@@ -1,38 +1,23 @@
 'use strict';
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('schedules', {
+        await queryInterface.createTable('cinematechnologies', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            currentNumber: {
-                type: Sequelize.INTEGER
-            },
-            maxNumber: {
-                type: Sequelize.INTEGER
-            },
-            filmId: {
-                type: Sequelize.INTEGER
-            },
-            date: {
+            name: {
                 type: Sequelize.STRING
             },
-            cinemaTech: {
-                type: Sequelize.STRING
+            description: {
+                type: Sequelize.TEXT('long')
+            },
+            image: {
+                type: Sequelize.BLOB('long')
             },
             timeType: {
-                type: Sequelize.STRING
-            },
-            seatType: {
-                type: Sequelize.STRING
-            },
-            price: {
-                type: Sequelize.STRING
-            },
-            seat: {
                 type: Sequelize.STRING
             },
             createdAt: {
@@ -46,6 +31,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('schedules');
+        await queryInterface.dropTable('cinematechnologies');
     }
 };

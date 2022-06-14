@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             Allcode.hasMany(models.Film, { foreignKey: 'genreId', as: 'genreData' })
             Allcode.hasMany(models.Film, { foreignKey: 'showId', as: 'showData' })
+            Allcode.hasMany(models.Schedule, { foreignKey: 'timeType', as: 'timeTypeDataAll' })
+            Allcode.hasMany(models.Schedule, { foreignKey: 'seat', as: 'seatDataAll' })
+            Allcode.hasMany(models.Schedule, { foreignKey: 'seatType', as: 'seatTypeDataAll' })
         }
     }
     Allcode.init({

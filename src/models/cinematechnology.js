@@ -3,7 +3,7 @@ const {
     Model, BOOLEAN
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class Cinema extends Model {
+    class Cinematechnology extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -11,16 +11,18 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            Cinematechnology.hasMany(models.Schedule, { foreignKey: 'cinemaTech', as: 'cinemaTechDataAll' })
+
         }
     }
-    Cinema.init({
+    Cinematechnology.init({
         name: DataTypes.STRING,
-        address: DataTypes.STRING,
-        discription: DataTypes.TEXT,
-        image: DataTypes.STRING,
+        description: DataTypes.TEXT('long'),
+        image: DataTypes.BLOB('long'),
+        timeType: DataTypes.STRING,
     }, {
         sequelize,
-        modelName: 'Cinema',
+        modelName: 'Cinematechnology',
     });
-    return Cinema;
+    return Cinematechnology;
 };

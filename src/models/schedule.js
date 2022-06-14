@@ -11,14 +11,23 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            Schedule.belongsTo(models.Allcode, { foreignKey: 'timeType', targetKey: 'keyMap', as: 'timeTypeDataAll' })
+            Schedule.belongsTo(models.Price, { foreignKey: 'price', targetKey: 'keyMap', as: 'priceDataAll' })
+            Schedule.belongsTo(models.Allcode, { foreignKey: 'seat', targetKey: 'keyMap', as: 'seatDataAll' })
+            Schedule.belongsTo(models.Allcode, { foreignKey: 'seatType', targetKey: 'keyMap', as: 'seatTypeDataAll' })
+            Schedule.belongsTo(models.Cinematechnology, { foreignKey: 'cinemaTech', targetKey: 'name', as: 'cinemaTechDataAll' })
         }
     }
     Schedule.init({
         currentNumber: DataTypes.INTEGER,
         maxNumber: DataTypes.INTEGER,
-        date: DataTypes.DATE,
-        timeType: DataTypes.STRING,
         filmId: DataTypes.INTEGER,
+        date: DataTypes.STRING,
+        cinemaTech: DataTypes.STRING,
+        timeType: DataTypes.STRING,
+        seatType: DataTypes.STRING,
+        price: DataTypes.STRING,
+        seat: DataTypes.STRING
     }, {
         sequelize,
         modelName: 'Schedule',

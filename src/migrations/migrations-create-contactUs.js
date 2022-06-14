@@ -1,39 +1,25 @@
 'use strict';
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('schedules', {
+        await queryInterface.createTable('contactus', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            currentNumber: {
-                type: Sequelize.INTEGER
-            },
-            maxNumber: {
-                type: Sequelize.INTEGER
-            },
-            filmId: {
-                type: Sequelize.INTEGER
-            },
-            date: {
+            firstName: {
                 type: Sequelize.STRING
             },
-            cinemaTech: {
+            lastName: {
                 type: Sequelize.STRING
             },
-            timeType: {
+            email: {
                 type: Sequelize.STRING
             },
-            seatType: {
-                type: Sequelize.STRING
-            },
-            price: {
-                type: Sequelize.STRING
-            },
-            seat: {
-                type: Sequelize.STRING
+            messages: {
+                allowNull: true,
+                type: Sequelize.TEXT('long')
             },
             createdAt: {
                 allowNull: false,
@@ -46,6 +32,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('schedules');
+        await queryInterface.dropTable('contactus');
     }
 };

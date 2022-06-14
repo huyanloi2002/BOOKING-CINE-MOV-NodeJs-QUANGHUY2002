@@ -21,9 +21,13 @@ module.exports = (sequelize, DataTypes) => {
         nameVi: DataTypes.STRING,
         nameEn: DataTypes.STRING,
         genreId: DataTypes.STRING,
-        cinemaId: DataTypes.STRING,
         showId: DataTypes.STRING,
         image: DataTypes.STRING,
+        director: DataTypes.STRING,
+        actor: DataTypes.STRING,
+        dayShow: DataTypes.STRING,
+        duration: DataTypes.STRING,
+        language: DataTypes.STRING
     }, {
         sequelize,
         modelName: 'Film',

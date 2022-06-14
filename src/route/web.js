@@ -39,7 +39,33 @@ let initWebRoutes = (app) => {
     router.get('/api/get-all-news', filmController.handleGetAllNews);
     router.post('/api/create-news', filmController.handleCreateNews);
     router.put('/api/edit-news', filmController.handleEditNews);
-    router.delete('/api/delete-news', filmController.handleDeleteNews)
+    router.delete('/api/delete-news', filmController.handleDeleteNews);
+    //contact-us
+    router.post('/api/create-contact-us', filmController.handleCreateContactUs);
+    router.get('/api/get-contact-us', filmController.handleGetContactUs);
+    // router.delete('/api/delete-contact-us', filmController.handleDeleteContactUs)
+    //Time-Booking
+    router.post('/api/bulk-create-time-booking', filmController.handleBulkCreateTimeBooking);
+    router.get('/api/get-booking-time-by-date', filmController.handleGetBookingTimeByDate);
+    router.get('/api/get-booking-time-by-seat', filmController.handleGetBookingTimeBySeat);
+    router.get('/api/get-booking-time-by-price', filmController.handleGetBookingTimeByPrice)
+    //CinemaTech
+    router.post('/api/create-cinema-tech', filmController.handleCreateCinemaTech);
+    router.get('/api/get-all-cinema-tech', filmController.handleGetAllCinemaTech);
+    router.put('/api/edit-cinema-tech', filmController.handleEditCinemaTech);
+    router.delete('/api/delete-cinema-tech', filmController.handleDeleteCinemaTech);
+    //Buy Combo
+    router.post('/api/creat-buy-combo', filmController.handleCreateBuyCombo);
+    router.get('/api/get-buy-combo', filmController.handleGetBuyCombo);
+    router.put('/api/edit-buy-combo', filmController.handleEditBuyCombo);
+    router.delete('/api/delete-buy-combo', filmController.handleDeleteBuyCombo);
+    router.get('/api/get-buy-combo-by-id', filmController.handleGetBuyComboById);
+    //paymenttype
+    router.get('/api/get-all-payment-types', filmController.handleGetAllPaymentTypes);
+    router.post('/api/creat-payment-types', filmController.handleCreatePaymentTypes);
+    //price 
+    router.get('/api/get-all-price', filmController.handleGetAllPrice);
+
     return app.use("/", router);
 }
 module.exports = initWebRoutes;

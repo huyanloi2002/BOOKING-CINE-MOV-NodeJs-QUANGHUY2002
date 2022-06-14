@@ -17,13 +17,25 @@ module.exports = {
             genreId: {
                 type: Sequelize.STRING
             },
-            cinemaId: {
-                type: Sequelize.STRING
-            },
             showId: {
                 type: Sequelize.STRING
             },
             image: {
+                type: Sequelize.STRING
+            },
+            director: {
+                type: Sequelize.STRING
+            },
+            actor: {
+                type: Sequelize.STRING
+            },
+            dayShow: {
+                type: Sequelize.STRING
+            },
+            duration: {
+                type: Sequelize.STRING
+            },
+            language: {
                 type: Sequelize.STRING
             },
             createdAt: {
