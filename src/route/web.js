@@ -27,6 +27,7 @@ let initWebRoutes = (app) => {
     router.put('/api/edit-film', filmController.handleEditFilm);
     router.delete('/api/delete-film', filmController.handleDeleteFilm); //rest Api
     router.get('/api/get-top-films', filmController.handleGetTopFilms);
+    router.get('/api/get-now-coming-movies', filmController.handleGetNowComingMovies)
 
     router.post('/api/save-infor-film', filmController.handleSaveInforFilm);
     router.get('/api/get-infor-film-by-id', filmController.handleGetInforFilmById);

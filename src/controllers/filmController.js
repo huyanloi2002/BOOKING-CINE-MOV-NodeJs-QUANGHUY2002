@@ -73,6 +73,19 @@ let handleGetInforFilmById = async (req, res) => {
         })
     }
 }
+let handleGetNowComingMovies = async (req, res) => {
+    try {
+        let response = await filmService.getMoviesNowAndComing(req.query.showId)
+        return res.status(200).json(response)
+    } catch (e) {
+        console.log(e)
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: "Error from server...!"
+        })
+    }
+}
+//
 let handleGetMarkdownInforFilm = async (req, res) => {
     try {
         let markdown = await filmService.getMarkdownInforFilm(req.query.filmId);
@@ -411,6 +424,8 @@ module.exports = {
     handleGetTopFilms: handleGetTopFilms,
     handleSaveInforFilm: handleSaveInforFilm,
     handleGetInforFilmById: handleGetInforFilmById,
+    handleGetNowComingMovies: handleGetNowComingMovies,
+    //
     handleGetMarkdownInforFilm: handleGetMarkdownInforFilm,
     handleGetBanner: handleGetBanner,
     handleSaveBanner: handleSaveBanner,

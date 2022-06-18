@@ -31,6 +31,35 @@ let getAllFilms = () => {
 // let getNowShowingFilm = () => {
 
 // }
+let getMoviesNowAndComing = (showIdInput) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!showIdInput) {
+                resolve({
+                    errCode: 1,
+                    errMessage: "Missing required parameters !"
+                })
+            } else {
+                let movies = await db.Film.findAll({
+                    where: { showId: showIdInput },
+                    order: [['createdAt', 'DESC']],
+                    include: [
+                        { model: db.Allcode, as: 'genreData', attributes: ['valueEn', 'valueVi'] },
+                        { model: db.Allcode, as: 'showData', attributes: ['valueEn', 'valueVi'] }
+                    ],
+                    raw: true,
+                    nest: true,
+                });
+                resolve({
+                    errCode: 0,
+                    data: movies
+                })
+            }
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
 let getTopFilms = (limitInput) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -970,6 +999,8 @@ module.exports = {
     deleteFilm: deleteFilm,
     updateFilm: updateFilm,
     getTopFilms: getTopFilms,
+    getMoviesNowAndComing: getMoviesNowAndComing,
+    //
     saveInforFilm: saveInforFilm,
     getInforFilmById: getInforFilmById,
     getMarkdownInforFilm: getMarkdownInforFilm,
